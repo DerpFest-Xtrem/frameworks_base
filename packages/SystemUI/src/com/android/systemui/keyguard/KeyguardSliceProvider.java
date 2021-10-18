@@ -48,7 +48,7 @@ import androidx.slice.builders.SliceAction;
 import androidx.slice.widget.SliceViewUtil;;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.internal.util.superior.OmniJawsClient;
+import com.android.internal.util.derp.OmniJawsClient;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardUpdateMonitorCallback;
 import com.android.systemui.R;
