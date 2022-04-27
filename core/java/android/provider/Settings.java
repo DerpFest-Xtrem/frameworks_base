@@ -6678,11 +6678,21 @@ public final class Settings {
          * @hide
          */
         public static final String QS_HEADER_IMAGE = "qs_header_image";
+         
+	/**
+	 * @hide
+         */
+        public static final String QS_TILE_LABEL_HIDE = "qs_tile_label_hide";
 
         /**
          * @hide
          */
         public static final String QS_BATTERY_STYLE = "qs_battery_style";
+        
+	/**
+	 * @hide
+	 */
+	public static final String QS_TILE_VERTICAL_LAYOUT = "qs_tile_vertical_layout";
 
         /**
          * @hide
@@ -6728,11 +6738,21 @@ public final class Settings {
 	 * @hide
 	 */
 	public static final String SMART_5G = "smart_5g";
+        
+	/**
+	* @hide
+	*/
+	public static final String QS_LAYOUT = "qs_layout";
 
         /**
          * @hide
          */
         public static final String RECENTS_LOCKED_TASKS = "recents_locked_tasks";
+        
+	/**
+	 * @hide
+	 */
+	public static final String QQS_LAYOUT = "qqs_layout";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
