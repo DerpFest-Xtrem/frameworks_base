@@ -247,52 +247,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.NOTIFICATION_PULSE_DURATION, ANY_INTEGER_VALIDATOR);
         VALIDATORS.put(System.ENABLE_FLOATING_ROTATION_BUTTON, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.ACCELEROMETER_ROTATION_ANGLES, NON_NEGATIVE_INTEGER_VALIDATOR);
-        VALIDATORS.put(System.LOCKSCREEN_ROTATION, BOOLEAN_VALIDATOR);
-        VALIDATORS.put(System.RINGTONE_VIBRATION_PATTERN, new InclusiveIntegerRangeValidator(0, 5));
-        VALIDATORS.put(System.CUSTOM_RINGTONE_VIBRATION_PATTERN,
-                 new ListValidator(",") {
-
-                    @Override
-                    protected boolean isEntryValid(String entry) {
-                        return entry != null;
-                    }
-
-                    @Override
-                    protected boolean isItemValid(String item) {
-                        return new InclusiveIntegerRangeValidator(0, 1000).validate(item);
-                    }
-                });
-        VALIDATORS.put(System.DISABLE_RIPPLE_EFFECT, BOOLEAN_VALIDATOR);
-        VALIDATORS.put(System.KEYGUARD_QUICK_TOGGLES_NEW,
-                new Validator() {
-                    @Override
-                    public boolean validate(String value) {
-                        if (value == null) return true;
-                        if (!value.contains(";")) return false;
-                        final List<String> valid = Arrays.asList(
-                            "home",
-                            "wallet",
-                            "qr_code_scanner",
-                            "camera",
-                            "flashlight",
-                            "do_not_disturb"
-                        );
-                        final String[] split = value.split(";");
-                        if (split.length != 2) return false;
-                        if (!split[0].equals("none")) {
-                            String[] args = split[0].split(",");
-                            for (String arg : args)
-                                if (!valid.contains(arg))
-                                    return false;
-                        }
-                        if (!split[1].equals("none")) {
-                            String[] args = split[1].split(",");
-                            for (String arg : args)
-                                if (!valid.contains(arg))
-                                    return false;
-                        }
-                        return true;
-                    }
-                });
+        VALIDATORS.put(System.QS_PANEL_STYLE, NON_NEGATIVE_INTEGER_VALIDATOR);
     }
 }
