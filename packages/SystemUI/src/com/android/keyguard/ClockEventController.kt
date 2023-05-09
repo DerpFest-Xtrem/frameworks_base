@@ -216,17 +216,17 @@ constructor(
     private var smallClockIsDark = true
     private var largeClockIsDark = true
 
-    private val configListener =
-        object : ConfigurationController.ConfigurationListener {
-            override fun onThemeChanged() {
-                clock?.events?.onColorPaletteChanged(resources)
-                updateColors()
-            }
-
-            override fun onDensityOrFontScaleChanged() {
-                updateFontSizes()
-            }
+    private val configListener = object : ConfigurationController.ConfigurationListener {
+        override fun onThemeChanged() {
+            clock?.events?.onColorPaletteChanged(resources)
+            updateFontSizes()
+            updateColors()
         }
+
+        override fun onDensityOrFontScaleChanged() {
+            updateFontSizes()
+        }
+    }
 
     private val batteryCallback =
         object : BatteryStateChangeCallback {
@@ -236,6 +236,7 @@ constructor(
                 }
                 isCharging = charging
             }
+            updateFontSizes()
         }
 
     private val localeBroadcastReceiver =
@@ -351,6 +352,10 @@ constructor(
             ?.onFontSettingChanged(
                 resources.getDimensionPixelSize(R.dimen.large_clock_text_size).toFloat()
             )
+    }
+
+    public fun updateAll() {
+        updateFontSizes()
     }
 
     private fun handleDoze(doze: Float) {
