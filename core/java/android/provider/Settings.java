@@ -297,6 +297,7 @@ public final class Settings {
      */
     public static final String ACTION_ONE_HANDED_SETTINGS =
             "android.settings.action.ONE_HANDED_SETTINGS";
+
     /**
      * The return values for {@link Settings.Config#set}
      * @hide
@@ -5660,6 +5661,21 @@ public final class Settings {
          * Contains the battery light maximum brightness to use when Do Not
          * Disturb is active.
          * Values range from 1 to 255
+         
+	/**
+	 * Enable Morphing for qs
+         * @hide
+         */
+        public static final String QS_ENABLE_MORPHING = "qs_enable_morphing";
+
+        /**
+         * Invert Morphing for qs
+         * @hide
+         */
+        public static final String QS_INVERT_MORPHING = "qs_invert_morphing";
+
+        /**
+         * Battery style
          * @hide
          */
         public static final String BATTERY_LIGHT_BRIGHTNESS_LEVEL_ZEN =
