@@ -5675,6 +5675,12 @@ public final class Settings {
         public static final String QS_INVERT_MORPHING = "qs_invert_morphing";
 
         /**
+         * Invert Morphing for qs
+         * @hide
+         */
+        public static final String QS_FULL_MORPHING = "qs_full_morphing";
+
+        /**
          * Battery style
          * @hide
          */

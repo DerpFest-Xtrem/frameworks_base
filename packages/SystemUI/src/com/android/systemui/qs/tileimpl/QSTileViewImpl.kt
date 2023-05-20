@@ -245,6 +245,10 @@ open class QSTileViewImpl @JvmOverloads constructor(
             context.contentResolver,
             Settings.System.QS_INVERT_MORPHING, 0,
             UserHandle.USER_CURRENT) == 1
+            val fullQsMorphing = Settings.System.getIntForUser(
+            context.contentResolver,
+            Settings.System.QS_FULL_MORPHING, 0,
+            UserHandle.USER_CURRENT) == 1
             val iconContainerSize = context.resources.getDimensionPixelSize(R.dimen.qs_quick_tile_size)
             radiusActive = iconContainerSize / 2f
             radiusInactive = iconContainerSize / 4f
@@ -253,6 +257,10 @@ open class QSTileViewImpl @JvmOverloads constructor(
 	    }
             if (invertQsMorphing) {
             radiusActive = iconContainerSize / 4f
+            }
+            if (fullQsMorphing) {
+            radiusActive = iconContainerSize / 2f
+            radiusInactive = iconContainerSize / 2f
             }
             iconContainer = LinearLayout(context)
             iconContainer.layoutParams = LayoutParams(iconContainerSize, iconContainerSize)
