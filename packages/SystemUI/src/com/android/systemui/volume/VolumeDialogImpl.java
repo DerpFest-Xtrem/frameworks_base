@@ -334,6 +334,8 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     // Number of animating rows
     private int mAnimatingRows = 0;
 
+    private int mTimeOutDesired, mTimeOut;
+    
     public VolumeDialogImpl(
             Context context,
             VolumeDialogController volumeDialogController,
@@ -2846,7 +2848,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
                             userLevel);
                 }
             }
-            mController.vibrate(VibrationEffect.get(VibrationEffect.EFFECT_TEXTURE_TICK));
+           mController.vibrate(VibrationEffect.get(VibrationEffect.EFFECT_TEXTURE_TICK));
         }
 
         @Override

@@ -112,5 +112,6 @@ public class SystemSettings {
         Settings.System.DISABLE_RIPPLE_EFFECT,
         Settings.System.KEYGUARD_QUICK_TOGGLES_NEW,
         Settings.System.QS_PANEL_STYLE,
+        Settings.System.HAPTIC_ON_SLIDER,
     };
 }
