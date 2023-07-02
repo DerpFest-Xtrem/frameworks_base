@@ -111,6 +111,5 @@ public class SystemSettings {
         Settings.System.CUSTOM_RINGTONE_VIBRATION_PATTERN,
         Settings.System.DISABLE_RIPPLE_EFFECT,
         Settings.System.KEYGUARD_QUICK_TOGGLES_NEW,
-        Settings.System.QS_PANEL_STYLE,
     };
 }
