@@ -6720,8 +6720,9 @@ public final class Settings {
          */
         public static final String CLOCK_USE_CUSTOM_FORMAT = "clock_use_custom_format";
 
+	/**
         * @hide
-         */
+        */ 
         public static final String QS_PANEL_STYLE = "qs_panel_style";
 
          /**

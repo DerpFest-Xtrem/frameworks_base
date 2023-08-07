@@ -236,7 +236,6 @@ constructor(
                 }
                 isCharging = charging
             }
-            updateFontSizes()
         }
 
     private val localeBroadcastReceiver =

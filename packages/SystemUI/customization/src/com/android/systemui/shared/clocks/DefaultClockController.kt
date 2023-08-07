@@ -19,7 +19,9 @@ import android.graphics.Color
 import android.graphics.Rect
 import android.icu.text.NumberFormat
 import android.util.TypedValue
+import android.graphics.Typeface
 import android.view.LayoutInflater
+import android.os.UserHandle
 import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.VisibleForTesting
@@ -36,6 +38,8 @@ import java.io.PrintWriter
 import java.util.Locale
 import java.util.TimeZone
 
+import android.provider.Settings.Secure
+
 private val TAG = DefaultClockController::class.simpleName
 
 /**
@@ -45,7 +49,7 @@ private val TAG = DefaultClockController::class.simpleName
  * existing lockscreen clock.
  */
 class DefaultClockController(
-    ctx: Context,
+    val ctx: Context,
     private val layoutInflater: LayoutInflater,
     private val resources: Resources,
     private val settings: ClockSettings?,
@@ -137,12 +141,11 @@ class DefaultClockController(
 
                 override fun onFontSettingChanged(fontSizePx: Float) {
             	    val smallClockTextSize = Secure.getIntForUser(ctx.getContentResolver(),
-             		Secure.KG_SMALL_CLOCK_TEXT_SIZE, 80, UserHandle.USER_CURRENT)
+             		Secure.KG_SMALL_CLOCK_TEXT_SIZE, 86, UserHandle.USER_CURRENT)
             	    val largeClockTextSize = Secure.getIntForUser(ctx.getContentResolver(),
-             		Secure.KG_LARGE_CLOCK_TEXT_SIZE, 86, UserHandle.USER_CURRENT)
+             		Secure.KG_LARGE_CLOCK_TEXT_SIZE, 180, UserHandle.USER_CURRENT)
    		    val finalSmallTextSize = smallClockTextSize.dp
    		    val finalLargeClockTextSize = largeClockTextSize.dp
-            	    view.setTypeface(Typeface.create(resources.getString(com.android.internal.R.string.config_clockFontFamily), Typeface.NORMAL))
             	    setClockFontSize(smallClock.view, finalSmallTextSize.px.toFloat() *  2.5f)
             	    setClockFontSize(largeClock.view, finalLargeClockTextSize.px.toFloat() * 2.5f)
                     recomputePadding(targetRegion)
